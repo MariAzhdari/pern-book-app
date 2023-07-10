@@ -5,6 +5,8 @@ import dotenv from "dotenv"
 dotenv.config();
 const { Pool } = pkg;
 
+const port = process.env.PORT || 8800;
+
 
 const app = express();
 app.use(cors());
@@ -83,6 +85,6 @@ app.put("/books/:id", async (req, res) => {
   }
 });
 
-app.listen(8800, () => {
+app.listen(port, () => {
   console.log("Connected to backend.");
 });
