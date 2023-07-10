@@ -1,8 +1,10 @@
 import express from "express";
 import cors from "cors";
 import pkg from "pg";
-// import env from ".env"
+import dotenv from "dotenv"
+dotenv.config();
 const { Pool } = pkg;
+
 
 const app = express();
 app.use(cors());
@@ -33,9 +35,9 @@ app.get("/books", async (req, res) => {
 
 app.post("/books", async (req, res) => {
   const q =
-    "INSERT INTO books(title, description, price, cover) VALUES ($1, $2, $3, $4)";
-  const { title, description, price, cover } = req.body;
-  const values = [title, description, price, cover];
+    "INSERT INTO books(title, description, price) VALUES ($1, $2, $3)";
+  const { title, description, price } = req.body;
+  const values = [title, description, price];
 
   try {
     const client = await db.connect();
@@ -66,9 +68,9 @@ app.delete("/books/:id", async (req, res) => {
 app.put("/books/:id", async (req, res) => {
   const bookId = req.params.id;
   const q =
-    "UPDATE books SET title = $1, description = $2, price = $3, cover = $4 WHERE id = $5";
-  const { title, description, price, cover } = req.body;
-  const values = [title, description, price, cover, bookId];
+    "UPDATE books SET title = $1, description = $2, price = $3, WHERE id = $5";
+  const { title, description, price} = req.body;
+  const values = [title, description, price, bookId];
 
   try {
     const client = await db.connect();

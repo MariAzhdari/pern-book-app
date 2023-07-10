@@ -7,7 +7,6 @@ const Update = () => {
     title: "",
     desc: "",
     price: null,
-    cover: "",
   });
   const [error, setError] = useState(false);
 
@@ -52,12 +51,6 @@ const Update = () => {
         type="number"
         placeholder="Book price"
         name="price"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Book cover"
-        name="cover"
         onChange={handleChange}
       />
       <button onClick={handleClick}>Update</button>

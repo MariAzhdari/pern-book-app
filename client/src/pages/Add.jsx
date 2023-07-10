@@ -6,9 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Add = () => {
   const [book, setBook] = useState({
     title: "",
-    desc: "",
+    description: "",
     price: null,
-    cover: "",
   });
   const [error, setError] = useState(false);
 
@@ -42,19 +41,13 @@ const Add = () => {
         rows={5}
         type="text"
         placeholder="Book desc"
-        name="desc"
+        name="description"
         onChange={handleChange}
       />
       <input
         type="number"
         placeholder="Book price"
         name="price"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Book cover"
-        name="cover"
         onChange={handleChange}
       />
       <button onClick={handleClick}>Add</button>
