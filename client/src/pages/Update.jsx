@@ -23,7 +23,10 @@ const Update = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:8800/books/${bookId}`, book);
+      await axios.put(
+        `https://full-stack-cyf-book.onrender.com/${bookId}`,
+        book
+      );
       navigate("/");
     } catch (err) {
       console.log(err);
