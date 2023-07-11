@@ -8,7 +8,9 @@ const Books = () => {
   useEffect(() => {
     const fetchAllBooks = async () => {
       try {
-        const res = await axios.get("https://full-stack-cyf-book.onrender.com");
+        const res = await axios.get(
+          "https://full-stack-cyf-book.onrender.com/books"
+        );
         setBooks(res.data);
       } catch (err) {
         console.log(err);
@@ -21,7 +23,7 @@ const Books = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://full-stack-cyf-book.onrender.com/${id}`);
+      await axios.delete(`https://full-stack-cyf-book.onrender.com/books/${id}`);
       window.location.reload();
     } catch (err) {
       console.log(err);

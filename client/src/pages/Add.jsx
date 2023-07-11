@@ -20,14 +20,14 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://full-stack-cyf-book.onrender.com", book);
+      await axios.post("https://full-stack-cyf-book.onrender.com/books", book);
       navigate("/");
     } catch (err) {
       console.log(err);
       setError(true);
     }
   };
-
+console.log("book")
   return (
     <div className="form">
       <h1>Add New Book</h1>
